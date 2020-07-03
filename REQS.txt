@@ -6,7 +6,3 @@
 # python setup.py install to work correctly without the need for
 # installing requirements via pip or easy_install.
 #
-
-Flask==0.10.1
-shortuuid==0.1
-future==0.15.2
