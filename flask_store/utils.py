@@ -6,8 +6,6 @@ flask_store.utils
 """
 
 import os
-from past.builtins import basestring
-
 
 def path_to_uri(path):
     """ Swaps \\ for / Other stuff will happen here in the future.
@@ -32,10 +30,7 @@ def is_path(f):
         Is a string or not
     """
 
-    if bytes is str:
-        return isinstance(f, basestring)
-    else:
-        return isinstance(f, (bytes, str))
+    return isinstance(f, (bytes, str))
 
 
 def is_directory(f):
