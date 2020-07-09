@@ -11,11 +11,7 @@ the following providers out of the box:
 * Amazon Simple File Storage (requires ``boto`` to be installed)
 """
 
-# Python 2/3 imports
-try:
-    from urllib.parse import urlparse
-except ImportError:
-    from urlparse import urlparse
+from urllib.parse import urljoin
 
 from flask import current_app, send_from_directory
 from flask_store.exceptions import NotConfiguredError
@@ -201,7 +197,7 @@ class Store(object):
 
         # Only do this if the Provider says so
         if self.Provider.register_route:
-            url = urlparse.urljoin(
+            url = urljoin(
                 app.config['STORE_URL_PREFIX'].lstrip('/') + '/',
                 '<path:filename>')
             app.add_url_rule('/' + url, 'flask.store.file', serve)
